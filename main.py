@@ -4,7 +4,7 @@ from flask import Flask, redirect, url_for
 import sys
 import service_class
 
-service =service_class.service()
+service = service_class.service()
 
 
 app = Flask(__name__)
