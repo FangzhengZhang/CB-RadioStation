@@ -1,4 +1,6 @@
 from flask import Flask, redirect, url_for
+import sys
+
 
 app = Flask(__name__)
 
@@ -7,4 +9,11 @@ def home():
     return "The main page is working"
 
 if __name__ == "__main__":
-    app.run(host="192.168.1.182", port=8080, debug=True)
+    if len(sys.argv) == 3:
+        addr = sys.argv[1]
+        port = sys.argv[2]
+    else:
+        print("Did not give address and port, so use default address and port.")
+        addr="192.168.1.182"
+        port=8080
+    app.run(host=addr, port=port, debug=True)
