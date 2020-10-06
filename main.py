@@ -1,3 +1,5 @@
+"""This py class will be the main class to start the server"""
+
 from flask import Flask, redirect, url_for
 import sys
 
@@ -6,7 +8,14 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return "The main page is working"
+    return "The home page is working"
+
+@app.route("/sys_status")
+def sys_status():
+    return "Sys status page is showing."
+
+
+
 
 if __name__ == "__main__":
     if len(sys.argv) == 3:
