@@ -2,7 +2,7 @@
 
 from flask import Flask, redirect, url_for
 import sys
-import pi_service
+
 
 service = pi_service()
 
