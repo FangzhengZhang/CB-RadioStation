@@ -2,10 +2,13 @@
 
 from flask import Flask, redirect, url_for
 import sys
-import service
+import pi_service
+
+service = pi_service()
 
 
 app = Flask(__name__)
+
 
 @app.route("/")
 def home():
@@ -13,8 +16,8 @@ def home():
 
 @app.route("/sys_status")
 def sys_status():
-    return "Sys status page is showing."
-
+    #return "Sys status page is showing."
+    return service.debug_print()
 
 
 

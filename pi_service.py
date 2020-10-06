@@ -1,6 +1,6 @@
 """ This class will be the service class"""
 
-class service:
+class pi_service:
 
     def __init__(self):
         pass
