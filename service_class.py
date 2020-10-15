@@ -1,6 +1,7 @@
 """ This class will be the service class"""
 import os
 import subprocess
+import json
 
 class service:
 
@@ -24,7 +25,7 @@ class service:
         out_list = o.split('\n')
         if out_list[len(out_list)-1] == '':
             del out_list[len(out_list)-1]
-        return out_list
+        return json.dumps(out_list)
 
     def play_music(self,music_name):
         pass
