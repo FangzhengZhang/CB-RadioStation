@@ -24,7 +24,7 @@ def get_local_music_list():
     return service.get_local_music_list()
 
 @app.route("/play_music")
-def play_music(music_name):
+def play_music():
     """"""
     return service.play_music(request.args.get('song'))
 
