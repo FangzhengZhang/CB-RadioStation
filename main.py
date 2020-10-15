@@ -23,6 +23,11 @@ def get_local_music_list():
     """json example {"local_music_list": ["AJR - Sober UpCopy.mp3", "AJR - Sober Up.mp3"]}"""
     return service.get_local_music_list()
 
+@app.route("/play_music/<music_name>")
+def play_music(music_name):
+    """"""
+    return service.play_music({music_name})
+
 
 
 if __name__ == "__main__":

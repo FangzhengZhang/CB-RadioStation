@@ -30,7 +30,7 @@ class service:
         return json.dumps(json_dic)
 
     def play_music(self,music_name):
-        pass
+        return music_name
 
     def play_all(self,music_list):
         pass
