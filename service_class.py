@@ -19,9 +19,15 @@ class service:
         pass
 
     def get_local_music_list(self):
-        list_files = subprocess.run(["ls", "-1", music_folder_path])
-        print("The exit code was: %d" % list_files.returncode)
-        return "get_local_music_list"
+        cmd = ['ls', '-1', music_folder_path]
+        proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        o, e = proc.communicate()
+
+        print('Output: ' + o.decode('ascii'))
+        print('Error: '  + e.decode('ascii'))
+        print('code: ' + str(proc.returncode))
+
+        return o.decode('ascii')
 
     def play_music(self,music_name):
         pass
