@@ -21,17 +21,25 @@ class service:
 
     def get_local_music_list(self):
         json_dic={}
+        json_dic["local_music_list"]=self.get_local_music_from_pi()
+        return json.dumps(json_dic)
+
+    def get_local_music_from_pi(self):
         cmd = ['ls', '-1', self.music_folder_path]
         proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         o, e = proc.communicate()
         out_list = o.split('\n')
         if out_list[len(out_list)-1] == '':
             del out_list[len(out_list)-1]
-        json_dic["local_music_list"]=out_list
-        return json.dumps(json_dic)
+        return out_list
 
     def play_music(self,music_name):
-        return music_name
+        json_dic={}
+        if self.is_song_playing:
+            #add song into queer
+            pass
+        local_music_list = self.get_local_music_from_pi()
+        return json.dumps(json_dic)
 
     def play_all(self,music_list):
         pass
