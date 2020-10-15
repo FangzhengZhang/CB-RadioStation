@@ -9,6 +9,7 @@ class service:
     def __init__(self):
         self.music_folder_path='/home/pi/Music'
         self.is_song_playing=False
+        self.play_list=[]
 
     def debug_print(self):
         """
@@ -36,10 +37,27 @@ class service:
     def play_music(self,music_name):
         json_dic={}
         if self.is_song_playing:
-            #add song into queer
-            pass
-        local_music_list = self.get_local_music_from_pi()
+            self.play_list.append(music_name)
+            json_dic["status"]="add to play list"
+            json_dic["status_code"]=1
+        else:
+            local_music_list = self.get_local_music_from_pi()
+            self.playing = False
+            if music_name in local_music_list:
+                self.playing = self.play_song_from_local(music_name)
+
+            else:
+                self.playing = self.play_song_from_web(music_name)
+
+        json_dic["play_list_size"]=len(self.play_list)
         return json.dumps(json_dic)
+
+    def play_song_from_local(self,music_name):
+        return False
+
+    def play_song_from_web(self,music_name):
+        return False
+
 
     def play_all(self,music_list):
         pass
