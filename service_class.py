@@ -8,6 +8,7 @@ class service:
 
     def __init__(self):
         self.music_folder_path='/home/pi/Music'
+        self.is_song_playing=False
 
     def debug_print(self):
         """
@@ -36,7 +37,9 @@ class service:
         pass
 
     def is_playing(self):
-        pass
+        json_dic={}
+        json_dic["is_song_playing"] = self.is_song_playing
+        return json.dumps(json_dic)
 
     def stop_play(self):
         pass
