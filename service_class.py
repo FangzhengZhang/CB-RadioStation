@@ -22,8 +22,9 @@ class service:
         proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         o, e = proc.communicate()
         out_list = o.split('\n')
-        print(out_list)
-        return o.decode('ascii')
+        if out_list[len(out_list)-1] == '':
+            del out_list[len(out_list)-1]
+        return out_list
 
     def play_music(self,music_name):
         pass
