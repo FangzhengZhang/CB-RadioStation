@@ -19,13 +19,15 @@ class service:
         pass
 
     def get_local_music_list(self):
+        json_dic={}
         cmd = ['ls', '-1', self.music_folder_path]
         proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         o, e = proc.communicate()
         out_list = o.split('\n')
         if out_list[len(out_list)-1] == '':
             del out_list[len(out_list)-1]
-        return json.dumps(out_list)
+        json_dic["local_music_list"]=out_list
+        return json.dumps(json_dic)
 
     def play_music(self,music_name):
         pass
