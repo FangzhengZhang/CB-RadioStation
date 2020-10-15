@@ -21,8 +21,8 @@ class service:
         cmd = ['ls', '-1', self.music_folder_path]
         proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         o, e = proc.communicate()
-        for name in o:
-            print (name)
+        out_list = o.split('\n')
+        print(out_list)
         return o.decode('ascii')
 
     def play_music(self,music_name):
