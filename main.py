@@ -20,6 +20,7 @@ def sys_status():
 
 @app.route("/get_local_music_list")
 def get_local_music_list():
+    """json example {"local_music_list": ["AJR - Sober UpCopy.mp3", "AJR - Sober Up.mp3"]}"""
     return service.get_local_music_list()
 
 
