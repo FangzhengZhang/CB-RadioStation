@@ -19,7 +19,7 @@ def sys_status():
     return service.debug_print()
 
 @app.route("/get_local_music_list")
-def sys_status():
+def get_local_music_list():
     return service.get_local_music_list()
 
 
