@@ -16,8 +16,9 @@ def home():
 
 @app.route("/sys_status")
 def sys_status():
-    #return "Sys status page is showing."
     return service.debug_print()
+
+
 
 
 

@@ -1,6 +1,10 @@
 """ This class will be the service class"""
+import os
+import subprocess
 
 class service:
+
+    music_folder_path='/home/pi/Music'
 
     def __init__(self):
         pass
@@ -15,7 +19,9 @@ class service:
         pass
 
     def get_local_music_list(self):
-        pass
+        list_files = subprocess.run(["ls", "-1", music_folder_path])
+        print("The exit code was: %d" % list_files.returncode)
+        return "get_local_music_list"
 
     def play_music(self,music_name):
         pass
