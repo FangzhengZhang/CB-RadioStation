@@ -4,10 +4,9 @@ import subprocess
 
 class service:
 
-    music_folder_path='/home/pi/Music'
 
     def __init__(self):
-        pass
+        self.music_folder_path='/home/pi/Music'
 
     def debug_print(self):
         """
@@ -19,7 +18,7 @@ class service:
         pass
 
     def get_local_music_list(self):
-        cmd = ['ls', '-1', music_folder_path]
+        cmd = ['ls', '-1', self.music_folder_path]
         proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         o, e = proc.communicate()
 
