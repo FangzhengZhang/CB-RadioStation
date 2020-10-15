@@ -1,6 +1,6 @@
 """This py class will be the main class to start the server"""
 
-from flask import Flask, redirect, url_for
+from flask import Flask, redirect, url_for, request
 import sys
 import service_class
 
